@@ -1,0 +1,18 @@
+# Dependencies / tooling
+node_modules/
+.netlify/
+.netlify-local-appdata/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs / caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npmrc
+
+# Secrets (keep out of repo)
+.env
+.env.*

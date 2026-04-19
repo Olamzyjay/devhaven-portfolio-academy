@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevHaven Studio | Developer Portfolio and Academy</title>
+  <meta name="description" content="DevHaven Studio builds modern websites, portfolio systems, and practical academy programs with a polished Bootstrap 5.3.8 front end and direct enrollment checkout flow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-mobile-bar">
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-shell">
+      <div class="container">
+        <a class="navbar-brand brand-mark" href="#top">DevHaven Studio</a>
+        <div class="d-flex align-items-center gap-2 ms-auto order-lg-3">
+          <a class="btn btn-outline-dark d-sm-none" href="academy/index.html" aria-label="Visit Academy">
+            <i class="bi bi-mortarboard"></i>
+          </a>
+          <a class="btn btn-outline-dark fw-semibold d-none d-sm-inline-flex d-lg-none" href="academy/index.html">
+            <i class="bi bi-mortarboard me-2"></i>
+            Academy
+          </a>
+          <a class="btn btn-accent fw-semibold d-none d-lg-inline-flex academy-nav-btn" href="academy/index.html">
+            <i class="bi bi-mortarboard me-2"></i>
+            Visit Academy
+          </a>
+          <button class="btn btn-outline-dark position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">
+            <i class="bi bi-cart3 me-2"></i>
+            Cart
+            <span class="cart-count-badge badge rounded-pill text-bg-dark" data-cart-count>0</span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse order-lg-2" id="siteNav">
+          <ul class="navbar-nav ms-auto me-lg-3 align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link nav-pill" href="#about">About</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#portfolio"><i class="bi bi-grid-3x3-gap me-2"></i>Projects</a></li>
+                <li><a class="dropdown-item" href="#case-studies"><i class="bi bi-journal-text me-2"></i>Case studies</a></li>
+                <li><a class="dropdown-item" href="#services"><i class="bi bi-lightning-charge me-2"></i>Services</a></li>
+                <li><a class="dropdown-item" href="#proof"><i class="bi bi-patch-check me-2"></i>Proof</a></li>
+                <li><a class="dropdown-item" href="#writing"><i class="bi bi-pencil-square me-2"></i>Writing</a></li>
+                <li><a class="dropdown-item" href="#resume"><i class="bi bi-file-earmark-text me-2"></i>Resume</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Academy</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="academy/index.html"><i class="bi bi-mortarboard me-2"></i>Courses</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link nav-pill" href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="d-lg-none mt-3 d-grid gap-2">
+            <a class="btn btn-accent fw-semibold" href="academy/index.html">
+              <i class="bi bi-mortarboard me-2"></i>
+              Visit Academy
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-section hero-with-slider">
+      <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="6500" data-bs-touch="true" data-bs-pause="false">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/6623842/pexels-photo-6623842.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100 hero-slide-img" alt="Modern website design workspace" loading="eager" fetchpriority="high">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100 hero-slide-img" alt="Team planning a website launch" loading="lazy">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100 hero-slide-img" alt="Learning web development on a laptop" loading="lazy">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="hero-backdrop"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="eyebrow" data-profile-tagline>Developer | Website Designer | Digital Skills Trainer</span>
+            <h1 class="display-4 fw-black text-white mb-4">I build responsive websites, ecommerce stores, and blockchain-ready web experiences that look great on every device and feel easy to trust.</h1>
+            <p class="hero-copy mb-4">I run DevHaven Studio, helping schools, founders, and growing brands turn rough ideas into polished websites with stronger structure, faster browsing, and a next step that is obvious.</p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a class="btn btn-accent btn-lg fw-semibold" href="#portfolio">
+                <i class="bi bi-stars me-2"></i>
+                Explore Portfolio
+              </a>
+              <a class="btn btn-outline-light btn-lg fw-semibold" href="academy/index.html">
+                <i class="bi bi-mortarboard me-2"></i>
+                Visit Academy
+              </a>
+            </div>
+            <div class="hero-meta d-flex flex-wrap gap-3">
+              <span><i class="bi bi-check-circle-fill me-2"></i>All-device responsive</span>
+              <span><i class="bi bi-lightning-charge-fill me-2"></i>WhatsApp-first response</span>
+              <span><i class="bi bi-patch-check-fill me-2"></i>Responsive, ecommerce, and Web3 builds</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="hero-panel">
+              <div class="panel-chip">What I do</div>
+              <div class="hero-panel-list">
+                <article>
+                  <strong>Responsive websites</strong>
+                  <p>Fast, clean websites that work smoothly on phones, tablets, and desktops for schools, brands, and creators.</p>
+                </article>
+                <article>
+                  <strong>Ecommerce and Shopify</strong>
+                  <p>Product pages, storefront setup, and clean checkout flows that help visitors buy with less friction.</p>
+                </article>
+                <article>
+                  <strong>Payments and automation</strong>
+                  <p>Paystack payment setup, chatbot automation, and forms that capture leads and make follow-up simple.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <div class="media-frame">
+              <img src="https://images.pexels.com/photos/1181279/pexels-photo-1181279.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Developer working on a laptop" class="img-fluid" loading="lazy">
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <span class="eyebrow text-success-emphasis">About DevHaven Studio</span>
+            <h2 class="section-title">I help schools, founders, and small teams launch clean, responsive websites that people understand quickly.</h2>
+            <div class="about-story">
+              <p class="section-copy">I am <strong data-profile-name>Your Name</strong>, CEO and lead developer behind DevHaven Studio. I build websites that feel clear, fast, and trustworthy on every device.</p>
+              <p class="section-copy">I started building websites in 2018. By 2019, I committed to coding seriously and began turning that skill into real products: landing pages, school sites, and systems that help people take action.</p>
+              <p class="section-copy">One of my most hands-on projects was a school CBT portal for exams. Building that system strengthened my backend fundamentals with <strong>PHP</strong> and <strong>MySQL</strong>, and taught me how to think about real users: student logins, question management, timed assessments, scoring, and admin control.</p>
+              <p class="section-copy">My focus became simple: I kept seeing great businesses and great schools lose enquiries because their websites were confusing, slow, or hard to use on a phone. I wanted to fix that with clean structure, readable design, and dependable code.</p>
+              <p class="section-copy mb-0">Today I split my time between building for clients and teaching practical skills through the DevHaven Academy so beginners can ship real pages, not just notes.</p>
+            </div>
+            <div class="row g-3 mt-1">
+              <div class="col-sm-6">
+                <div class="info-tile h-100">
+                  <h3>Website build and support</h3>
+                  <p>From brand new landing pages to cleanup for old websites that need better structure, sharper visuals, and stronger CTA flow.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-tile h-100">
+                  <h3>Training and mentorship</h3>
+                  <p>Practical learning for beginners, students, and small business owners who want digital skills they can use immediately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section-shell section-mist">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">What I Build</span>
+          <h2 class="section-title">The kind of work people usually come to DevHaven Studio for</h2>
+          <p class="section-copy">From responsive websites to ecommerce stores and crypto landing pages, the goal stays the same: make the message clear, make the layout easy to use, and make the next step obvious.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
+            <article class="portfolio-tile h-100">
+              <div class="tile-icon"><i class="bi bi-person-badge"></i></div>
+              <h3>Responsive websites (schools + brands)</h3>
+              <p>Structured pages that need trust, clarity, and fast enquiry flow across devices.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="portfolio-tile h-100">
+              <div class="tile-icon"><i class="bi bi-code-slash"></i></div>
+              <h3>Ecommerce websites (Shopify)</h3>
+              <p>Storefront setup, product pages, and responsive structure that helps visitors browse and buy with less friction.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="portfolio-tile h-100">
+              <div class="tile-icon"><i class="bi bi-kanban"></i></div>
+              <h3>Cryptocurrency / blockchain websites</h3>
+              <p>Clean, credible pages for Web3 projects: roadmap, token info, wallet-ready UI patterns, and strong trust signals.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="portfolio-tile h-100">
+              <div class="tile-icon"><i class="bi bi-send-check"></i></div>
+              <h3>Academy, payments, and automation</h3>
+              <p>Course pages with add-to-cart behavior, Paystack payment flow, and simple automation to capture leads.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-shell">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">Services</span>
+          <h2 class="section-title">How I can help your brand this month</h2>
+          <p class="section-copy">I build for readability, clarity, and quick action across phones, tablets, and desktops. Choose a starting point and I will guide the next steps.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Responsive website setup</h3>
+              <p>All-device websites with clean structure, trust signals, and direct enquiry flow that is easy to use.</p>
+              <ul class="service-list">
+                <li>Home, About, Programs, Contact</li>
+                <li>Responsive layout</li>
+                <li>WhatsApp and email routing</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="#contact">Request a quote</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Business landing page</h3>
+              <p>A focused page that explains your offer clearly and makes the next step easy on any device.</p>
+              <ul class="service-list">
+                <li>Offer and benefits sections</li>
+                <li>Strong call-to-action flow</li>
+                <li>Fast load and clean layout</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="#contact">Request a quote</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Portfolio refresh</h3>
+              <p>Sharper personal pages for freelancers and creators who need a stronger profile and better presentation.</p>
+              <ul class="service-list">
+                <li>Better layout and typography</li>
+                <li>Cleaner project presentation</li>
+                <li>Direct contact paths</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="#contact">Request a quote</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Website maintenance</h3>
+              <p>Support for updates, new sections, responsiveness fixes, and ongoing improvements.</p>
+              <ul class="service-list">
+                <li>Content updates</li>
+                <li>Layout fixes across devices</li>
+                <li>UI polish over time</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="#contact">Request a quote</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Academy page setup</h3>
+              <p>Course pages with add-to-cart behavior, Paystack payment flow, and clear follow-up steps.</p>
+              <ul class="service-list">
+                <li>Course catalog layout</li>
+                <li>Cart and checkout flow</li>
+                <li>Paystack + WhatsApp order summary</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="academy/index.html">View courses</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-tile h-100 service-tile">
+              <h3>Training and mentorship</h3>
+              <p>Hands-on sessions designed for output. Learners leave with pages, not only notes.</p>
+              <ul class="service-list">
+                <li>Beginner-friendly pacing</li>
+                <li>Project-led teaching</li>
+                <li>Clear learning outcomes</li>
+              </ul>
+              <a class="btn btn-dark w-100 fw-semibold" href="academy/index.html">View courses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell section-mist">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">Credentials</span>
+          <h2 class="section-title">Education, certifications, and community</h2>
+          <p class="section-copy">A complete portfolio usually includes education and certifications. Add your specific schools, courses, and certificates here as you grow the brand.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>Education</h3>
+              <p>Add your school, program, and year here. Keep it short and relevant to the work you want.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>Certifications</h3>
+              <p>Add certifications or short courses that support your work: frontend, design systems, marketing, or teaching.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>Community</h3>
+              <p>Add volunteer work, mentorship, or communities you support. This helps people understand your values and consistency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies" class="section-shell">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7">
+            <div class="section-head mb-4">
+              <span class="eyebrow text-success-emphasis">Selected Projects</span>
+              <h2 class="section-title">A few directions my recent work usually takes</h2>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <article class="case-card h-100">
+                  <img src="https://images.pexels.com/photos/32037741/pexels-photo-32037741.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students and teacher together outdoors" class="case-image" loading="lazy">
+                  <div class="case-body">
+                    <div class="case-tags">
+                      <span>School website</span>
+                      <span>Parent flow</span>
+                    </div>
+                    <h3>School website and parent trust flow</h3>
+                    <p>Reworked the page structure around school identity, programs, and direct contact so visitors could understand the offer faster on any device.</p>
+                    <ul class="case-list">
+                      <li>Stronger program presentation</li>
+                      <li>Cleaner responsive hierarchy</li>
+                      <li>Faster enquiry path</li>
+                    </ul>
+                    <button class="btn btn-outline-dark fw-semibold mt-3" type="button" data-bs-toggle="modal" data-bs-target="#caseSchoolModal">
+                      Read case study
+                    </button>
+                  </div>
+                </article>
+              </div>
+              <div class="col-md-6">
+                <article class="case-card h-100">
+                  <img src="https://images.pexels.com/photos/3183174/pexels-photo-3183174.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Laptop on a work table showing a business presentation" class="case-image" loading="lazy">
+                  <div class="case-body">
+                    <div class="case-tags">
+                      <span>Landing page</span>
+                      <span>Conversion flow</span>
+                    </div>
+                    <h3>Business landing page and offer clarity</h3>
+                    <p>Tightened the message, section order, and contact points so visitors could understand the offer and reach out without guesswork.</p>
+                    <ul class="case-list">
+                      <li>Focused one-page structure</li>
+                      <li>Clearer calls to action across devices</li>
+                      <li>WhatsApp-first lead capture</li>
+                    </ul>
+                    <button class="btn btn-outline-dark fw-semibold mt-3" type="button" data-bs-toggle="modal" data-bs-target="#caseBusinessModal">
+                      Read case study
+                    </button>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12">
+                <article class="case-card case-card-wide">
+                  <img src="https://images.pexels.com/photos/34162714/pexels-photo-34162714.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students studying together in a classroom" class="case-image" loading="lazy">
+                  <div class="case-body">
+                    <div class="case-tags">
+                      <span>Academy funnel</span>
+                      <span>Course enrollment</span>
+                    </div>
+                    <h3>Academy enrollment and checkout experience</h3>
+                    <p>Structured course information around outcomes, pricing, and checkout flow so the academy could work like a proper digital product instead of a brochure.</p>
+                    <div class="row g-3">
+                      <div class="col-sm-4">
+                        <div class="metric-tile">
+                          <strong>3</strong>
+                          <span>Live courses in cart</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="metric-tile">
+                          <strong>1</strong>
+                          <span>Shared checkout flow</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="metric-tile">
+                          <strong>24h</strong>
+                          <span>WhatsApp response target</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline-dark fw-semibold mt-3" type="button" data-bs-toggle="modal" data-bs-target="#caseAcademyModal">
+                      Read case study
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="stack-panel">
+              <span class="eyebrow text-success-emphasis">How I Work</span>
+              <h3 class="panel-title">What I bring into each build</h3>
+              <div class="stack-block">
+                <h4>Tools I use</h4>
+                <div class="chip-group">
+                  <span>HTML5 semantics</span>
+                  <span>CSS3 systems</span>
+                  <span>Bootstrap 5.3.8</span>
+                  <span>Bootstrap Icons</span>
+                  <span>Vanilla JavaScript</span>
+                  <span>Responsive UI</span>
+                </div>
+              </div>
+              <div class="stack-block">
+                <h4>Projects I take on</h4>
+                <ul class="feature-list">
+                  <li>Responsive websites and program pages</li>
+                  <li>Small business landing pages and brand sites</li>
+                  <li>Portfolio refresh, maintenance, and academy product pages</li>
+                </ul>
+              </div>
+              <div class="stack-block">
+                <h4>Working style</h4>
+                <p>Fast communication, responsive decisions, and a clear finish line from first brief to launch. I keep pages practical, readable, and easy to act on.</p>
+              </div>
+              <button class="btn btn-dark w-100 fw-semibold" type="button" data-download-profile>
+                <i class="bi bi-file-earmark-arrow-down me-2"></i>
+                Download company profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="section-shell section-dark">
+      <div class="container">
+        <div class="section-head section-head-light">
+          <span class="eyebrow text-white">Why Clients Choose DevHaven</span>
+          <h2 class="section-title">The work stays practical, responsive, and easy to follow</h2>
+          <p class="section-copy">I design for the way visitors actually browse: across devices, often in a hurry, and looking for the next clear step they can trust.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="proof-card h-100">
+              <div class="proof-number">01</div>
+              <h3>All-device layout</h3>
+              <p>Text stays readable, spacing stays clean, and buttons stay easy to use across phones, tablets, and desktops.</p>
+              <span>Responsive by default</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="proof-card h-100">
+              <div class="proof-number">02</div>
+              <h3>Fast communication</h3>
+              <p>Most project updates move through WhatsApp, so feedback, revisions, and next steps happen quickly.</p>
+              <span>Direct support flow</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="proof-card h-100">
+              <div class="proof-number">03</div>
+              <h3>Flexible support</h3>
+              <p>I can start with a landing page, a redesign, or a full academy flow depending on what the brand needs right now.</p>
+              <span>From small fix to full build</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section-shell">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">Testimonials</span>
+          <h2 class="section-title">What clients and learners usually say</h2>
+          <p class="section-copy">Short notes from clients and learners after delivery and training.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>School admin</h3>
+              <p>"The website became easier to read on every device and enquiries started coming in with clearer details."</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>Business owner</h3>
+              <p>"The landing page message finally made sense. Customers could see the offer quickly and reach us on WhatsApp."</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-tile h-100">
+              <h3>Academy learner</h3>
+              <p>"The lessons were practical. I left with a real page build and knew what to improve next."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">Experience Snapshot</span>
+          <h2 class="section-title">What the studio is built around</h2>
+          <p class="section-copy">This site reflects the real mix of work I do every week: build, refine, teach, and support brands that need a better digital presence.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Focus 01</span>
+              <h3>Website design for schools and brands</h3>
+              <p>Clean layouts, stronger first impressions, and pages that help visitors know where to click next.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Focus 02</span>
+              <h3>Frontend implementation and cleanup</h3>
+              <p>Responsive HTML, CSS, Bootstrap, and JavaScript improvements for websites that need better structure and polish.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Focus 03</span>
+              <h3>Digital skills training</h3>
+              <p>Practical classes for beginners, students, and freelancers who want usable skills and not only theory.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing" class="section-shell section-mist">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow text-success-emphasis">Writing</span>
+          <h2 class="section-title">Notes on websites, responsive UX, and digital skills</h2>
+          <p class="section-copy">A complete portfolio usually includes some writing or teaching that shows how you think. These are the topics I work with most often.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Note 01</span>
+              <h3>How I structure a school homepage for trust</h3>
+              <p>What parents look for first, the sections that reduce doubt, and how to move visitors toward registration and contact.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Note 02</span>
+              <h3>Responsive landing pages that convert</h3>
+              <p>Simple content order, button placement, and message clarity that works for visitors browsing quickly.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="insight-card h-100">
+              <span class="insight-label">Note 03</span>
+              <h3>Teaching HTML and CSS with real output</h3>
+              <p>How I help beginners build confidence through small wins, clean structure, and project-led practice.</p>
+            </article>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-dark fw-semibold" href="mailto:devhaven1@gmail.com?subject=Portfolio%20Topic%20Request">
+            <i class="bi bi-envelope me-2"></i>
+            Request a topic
+          </a>
+          <button class="btn btn-outline-dark fw-semibold" type="button" data-download-profile>
+            <i class="bi bi-file-earmark-arrow-down me-2"></i>
+            Download company profile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell section-mist">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="eyebrow text-success-emphasis">Academy</span>
+            <h2 class="section-title">Courses live on a dedicated Academy page</h2>
+            <p class="section-copy mb-0">Browse core programs, specialty tracks, and enrollment steps in one place.</p>
+          </div>
+          <div class="col-lg-5">
+            <div class="stack-panel">
+              <h3 class="panel-title mb-2">Visit Academy</h3>
+              <p class="section-copy mb-3">See course details, enquire about pricing, and add courses to cart.</p>
+              <div class="d-grid gap-2">
+                <a class="btn btn-accent fw-semibold" href="academy/index.html">
+                  <i class="bi bi-mortarboard me-2"></i>
+                  Visit Academy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="section-shell">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="eyebrow text-success-emphasis">Resume</span>
+            <h2 class="section-title">Company profile and printable resume</h2>
+            <p class="section-copy">Some clients want a quick summary they can forward. This section gives you a printable resume page plus the downloadable profile text.</p>
+          </div>
+          <div class="col-lg-5">
+            <div class="stack-panel">
+              <h3 class="panel-title mb-2">Quick downloads</h3>
+              <p class="section-copy mb-3">Use the printable resume when you want a clean page version. Use the download button for a quick file you can share.</p>
+              <div class="d-grid gap-2">
+                <a class="btn btn-dark fw-semibold" href="resume.html">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                  View printable resume
+                </a>
+                <button class="btn btn-outline-dark fw-semibold" type="button" data-download-profile>
+                  <i class="bi bi-file-earmark-arrow-down me-2"></i>
+                  Download company profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-5">
+            <div class="contact-panel h-100">
+              <span class="eyebrow text-success-emphasis">Contact</span>
+              <h2 class="section-title">Need a website, a redesign, or a training session?</h2>
+              <p class="section-copy">Tell me what you want to launch, improve, or learn. I reply fastest on WhatsApp and keep the next step clear.</p>
+              <div class="contact-link-group">
+                <a class="contact-link-card" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer">
+                  <i class="bi bi-whatsapp"></i>
+                  <div>
+                    <strong>WhatsApp me</strong>
+                    <span>+234 706 686 1881</span>
+                  </div>
+                </a>
+                <a class="contact-link-card" href="mailto:devhaven1@gmail.com">
+                  <i class="bi bi-envelope-paper"></i>
+                  <div>
+                    <strong>Email me</strong>
+                    <span>devhaven1@gmail.com</span>
+                  </div>
+                </a>
+              </div>
+              <div class="social-row" aria-label="Social links">
+                <a class="social-pill" data-social-github href="https://github.com/Olamzyjay" target="_blank" rel="noreferrer">
+                  <i class="bi bi-github me-2"></i>GitHub
+                </a>
+                <a class="social-pill d-none" data-social-linkedin href="#" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                  <i class="bi bi-linkedin me-2"></i>LinkedIn
+                </a>
+                <a class="social-pill" data-social-facebook href="https://www.facebook.com/profile.php?id=61582940563204" target="_blank" rel="noreferrer">
+                  <i class="bi bi-facebook me-2"></i>Facebook
+                </a>
+              </div>
+              <p class="social-note mb-0">More links can be added as the studio grows.</p>
+              <div class="d-grid d-sm-flex gap-3 mt-4">
+                <button class="btn btn-dark fw-semibold" type="button" data-download-profile>
+                  <i class="bi bi-file-earmark-arrow-down me-2"></i>
+                  Download company profile
+                </button>
+                <a class="btn btn-accent fw-semibold" href="academy/index.html">
+                  <i class="bi bi-mortarboard me-2"></i>
+                  Visit Academy
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="contact-form-shell">
+              <div class="section-head mb-4">
+                <span class="eyebrow text-success-emphasis">Quick brief</span>
+                <h3 class="panel-title mb-2">Send your brief</h3>
+                <p class="section-copy mb-0">Drop the core details and I will reply with the best next step for your website or training request.</p>
+              </div>
+              <form id="leadForm" class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                  <label class="form-label" for="fullName">Full name</label>
+                  <input class="form-control form-control-lg" id="fullName" name="full_name" type="text" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="emailAddress">Email address</label>
+                  <input class="form-control form-control-lg" id="emailAddress" name="email" type="email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phoneNumber">Phone number</label>
+                  <input class="form-control form-control-lg" id="phoneNumber" name="phone" type="tel" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="interestType">I want</label>
+                  <select class="form-select form-select-lg" id="interestType" name="interest" required>
+                    <option value="">Choose one</option>
+                    <option value="Portfolio Website">Portfolio Website</option>
+                    <option value="Business Website">Business Website</option>
+                    <option value="School Website">School Website</option>
+                    <option value="Course Enrollment">Course Enrollment</option>
+                    <option value="Maintenance Support">Maintenance Support</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="messageBox">Project or learning goal</label>
+                  <textarea class="form-control form-control-lg" id="messageBox" name="message" rows="5" required></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap gap-3 align-items-center">
+                  <button class="btn btn-accent btn-lg fw-semibold" type="submit">
+                    <i class="bi bi-whatsapp me-2"></i>
+                    Send on WhatsApp
+                  </button>
+                  <a id="emailFallback" class="btn btn-outline-dark btn-lg fw-semibold" href="mailto:devhaven1@gmail.com">
+                    <i class="bi bi-envelope me-2"></i>
+                    Send by email
+                  </a>
+                  <p id="formStatus" class="form-status mb-0" aria-live="polite"></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade" id="caseSchoolModal" tabindex="-1" aria-labelledby="caseSchoolModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="caseSchoolModalLabel">School Website and Parent Trust Flow</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-secondary mb-3">A school website needs to answer parent questions quickly: who the school is, what is offered, how registration works, and how to reach the right person.</p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>Goal</h3>
+                  <p>Make registration and contact clear across devices while improving the first impression and trust signals.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>What I changed</h3>
+                  <ul class="service-list mb-0">
+                    <li>Improved page structure and section order</li>
+                    <li>Made CTA buttons visible earlier</li>
+                    <li>Reduced confusion with simpler navigation</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Challenges</h3>
+                  <ul class="service-list mb-0">
+                    <li>Keeping information complete without making the page feel heavy</li>
+                    <li>Ensuring readability on small screens</li>
+                    <li>Helping parents find key registration details fast</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Result</h3>
+                  <ul class="service-list mb-0">
+                    <li>Cleaner responsive flow and better scanning</li>
+                    <li>Stronger program presentation</li>
+                    <li>Direct WhatsApp/email enquiry path</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light border">HTML5</span>
+                <span class="badge text-bg-light border">CSS3</span>
+                <span class="badge text-bg-light border">Bootstrap</span>
+                <span class="badge text-bg-light border">Responsive UI</span>
+              </div>
+              <div class="col-12">
+                <p class="text-secondary mb-0">Links: this kind of work is often client-owned or private. A live link can be shared on request.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-dark fw-semibold" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer">
+              Message on WhatsApp
+            </a>
+            <button type="button" class="btn btn-outline-dark fw-semibold" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="caseBusinessModal" tabindex="-1" aria-labelledby="caseBusinessModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="caseBusinessModalLabel">Business Landing Page and Offer Clarity</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-secondary mb-3">Many small business sites fail because the offer is unclear and the next step is hidden. This case focuses on message order and action flow across devices.</p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>Goal</h3>
+                  <p>Explain the offer in one smooth page flow and make enquiries easy from any device.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>What I changed</h3>
+                  <ul class="service-list mb-0">
+                    <li>Reordered sections for better scanning</li>
+                    <li>Strengthened CTA placement</li>
+                    <li>Improved clarity for first-time visitors</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Challenges</h3>
+                  <ul class="service-list mb-0">
+                    <li>Balancing detail with simplicity</li>
+                    <li>Keeping buttons thumb-friendly</li>
+                    <li>Maintaining speed and visual polish</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Result</h3>
+                  <ul class="service-list mb-0">
+                    <li>Cleaner one-page conversion path</li>
+                    <li>WhatsApp-first lead capture</li>
+                    <li>Improved readability across devices</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light border">HTML5</span>
+                <span class="badge text-bg-light border">Bootstrap</span>
+                <span class="badge text-bg-light border">CTA strategy</span>
+                <span class="badge text-bg-light border">Responsive UX</span>
+              </div>
+              <div class="col-12">
+                <p class="text-secondary mb-0">Links: some pages are private client work. A sample can be shared on request.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-dark fw-semibold" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer">
+              Message on WhatsApp
+            </a>
+            <button type="button" class="btn btn-outline-dark fw-semibold" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="caseAcademyModal" tabindex="-1" aria-labelledby="caseAcademyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="caseAcademyModalLabel">Academy Enrollment and Checkout Experience</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-secondary mb-3">The academy needed to feel like a real product: course cards, add-to-cart, a checkout page, and a simple way to submit the enrollment request.</p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>Goal</h3>
+                  <p>Let visitors choose courses, view totals, and submit an enrollment request without confusion.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-tile h-100">
+                  <h3>What I built</h3>
+                  <ul class="service-list mb-0">
+                    <li>Course cards with add-to-cart buttons</li>
+                    <li>Cart drawer with totals</li>
+                    <li>Checkout page with WhatsApp/email summary</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Challenges</h3>
+                  <ul class="service-list mb-0">
+                    <li>Keeping checkout simple across devices</li>
+                    <li>Persisting cart state between pages</li>
+                    <li>Verifying payments with Paystack and clear follow-up steps</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="info-tile">
+                  <h3>Result</h3>
+                  <ul class="service-list mb-0">
+                    <li>A complete cart to checkout flow</li>
+                    <li>Paystack payment + verification page</li>
+                    <li>Printable resume page for sharing</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light border">Bootstrap</span>
+                <span class="badge text-bg-light border">Vanilla JS</span>
+                <span class="badge text-bg-light border">localStorage cart</span>
+                <span class="badge text-bg-light border">Paystack</span>
+              </div>
+              <div class="col-12">
+                <p class="text-secondary mb-0">This setup supports Paystack payment and on-page verification. For bigger rollouts, we can add automated email receipts and an admin order dashboard.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-dark fw-semibold" href="academy/index.html">Visit Academy</a>
+            <button type="button" class="btn btn-outline-dark fw-semibold" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="mobile-action-bar d-md-none" aria-label="Quick actions">
+    <a class="mobile-action-link" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer">
+      <i class="bi bi-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a class="mobile-action-link" href="academy/index.html">
+      <i class="bi bi-mortarboard"></i>
+      <span>Courses</span>
+    </a>
+    <button class="mobile-action-link position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">
+      <i class="bi bi-cart3"></i>
+      <span>Cart</span>
+      <span class="cart-count-badge badge rounded-pill text-bg-dark" data-cart-count>0</span>
+    </button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">DevHaven Studio</div>
+          <p class="footer-copy">Websites, redesigns, and practical training built to feel clear on every device and easy to trust.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="footer-social" href="#contact" aria-label="Contact DevHaven Studio"><i class="bi bi-envelope"></i></a>
+            <a class="footer-social" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Explore</h3>
+          <ul class="footer-links">
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#case-studies">Case studies</a></li>
+            <li><a href="#proof">Proof</a></li>
+            <li><a href="#writing">Writing</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Services</h3>
+          <ul class="footer-links">
+            <li><a href="#services">Website build</a></li>
+            <li><a href="#services">Website redesign</a></li>
+            <li><a href="#services">Landing pages</a></li>
+            <li><a href="#contact">Request a quote</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h3 class="footer-title">Academy</h3>
+          <p class="footer-copy mb-3">Learn practical development and AI skills in the Academy.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-accent btn-sm fw-semibold" href="academy/index.html"><i class="bi bi-mortarboard me-2"></i>Visit Academy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> DevHaven Studio.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#top">Back to top</a>
+          <a href="resume.html">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+    <div class="offcanvas-header">
+      <div>
+        <h2 class="offcanvas-title h4 mb-1" id="cartDrawerLabel">Course cart</h2>
+        <p class="text-secondary mb-0">Review courses before checkout.</p>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="cart-item-list"></div>
+      <div id="cartEmpty" class="empty-state d-none">
+        <i class="bi bi-cart-x"></i>
+        <p>Your cart is empty right now.</p>
+      </div>
+      <div class="cart-summary mt-auto pt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-secondary">Total</span>
+          <strong id="cartTotal">NGN 0</strong>
+        </div>
+        <div class="d-grid gap-2">
+          <a id="checkoutLink" class="btn btn-dark fw-semibold" href="checkout.html">
+            <i class="bi bi-bag-check me-2"></i>
+            Continue to checkout
+          </a>
+          <button id="clearCartBtn" class="btn btn-outline-dark fw-semibold" type="button" data-clear-cart>
+            Clear cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="cartToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="cartToastBody">Course added to cart.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exitIntentModal" tabindex="-1" aria-labelledby="exitIntentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h4" id="exitIntentModalLabel">Before you go</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-secondary mb-3">Want course pricing, schedules, or a quick quote for a website build? Pick the fastest next step.</p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="info-tile h-100">
+                <h3>Visit Academy</h3>
+                <p>Browse courses, specialty tracks, and the learning outcomes.</p>
+                <a class="btn btn-accent fw-semibold w-100" href="academy/index.html">
+                  <i class="bi bi-mortarboard me-2"></i>
+                  Visit Academy
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-tile h-100">
+                <h3>Message on WhatsApp</h3>
+                <p>Get the quickest response for pricing, availability, and next steps.</p>
+                <button class="btn btn-dark fw-semibold w-100" type="button" data-exit-whatsapp>
+                  <i class="bi bi-whatsapp me-2"></i>
+                  WhatsApp DevHaven Studio
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="small text-secondary mt-3 mb-0">This popup shows once on desktop and will not disturb visitors browsing on phones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-dark chat-fab" type="button" data-bs-toggle="offcanvas" data-bs-target="#chatDrawer" aria-controls="chatDrawer">
+    <i class="bi bi-chat-dots me-2"></i>
+    Chat
+  </button>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="chatDrawer" aria-labelledby="chatDrawerLabel">
+    <div class="offcanvas-header">
+      <div>
+        <h2 class="offcanvas-title h4 mb-1" id="chatDrawerLabel">DevHaven Assistant</h2>
+        <p class="text-secondary mb-0">Ask about projects, services, or courses.</p>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div class="chat-quick d-flex flex-wrap gap-2 mb-3">
+        <button class="btn btn-outline-dark btn-sm fw-semibold" type="button" data-chat-prompt="Recommend a course for me. I am a beginner.">Course pick</button>
+        <button class="btn btn-outline-dark btn-sm fw-semibold" type="button" data-chat-prompt="I need a school website. What info do you need to give a quote?">Get a quote</button>
+        <button class="btn btn-outline-dark btn-sm fw-semibold" type="button" data-chat-prompt="Show me the kinds of projects DevHaven Studio builds.">Portfolio</button>
+        <button class="btn btn-outline-dark btn-sm fw-semibold" type="button" data-chat-reset>Reset</button>
+        <button class="btn btn-outline-dark btn-sm fw-semibold" type="button" data-chat-export>Export</button>
+      </div>
+
+      <div class="chat-feedback-note small text-secondary mb-2">Help improve this assistant. Please do not share passwords or sensitive info.</div>
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <button class="btn btn-outline-success btn-sm fw-semibold" type="button" data-chat-rate="up">Helpful</button>
+        <button class="btn btn-outline-danger btn-sm fw-semibold" type="button" data-chat-rate="down">Not helpful</button>
+      </div>
+
+      <div id="chatFeedbackWrap" class="chat-feedback card d-none mb-3">
+        <div class="card-body">
+          <form id="chatFeedbackForm" name="chat-feedback-ui">
+            <input type="hidden" id="chatFeedbackRating" name="rating" value="">
+            <input type="hidden" id="chatFeedbackPage" name="page" value="">
+            <input type="hidden" id="chatFeedbackSession" name="session_id" value="">
+            <input type="hidden" id="chatFeedbackTranscript" name="transcript" value="">
+
+            <label class="form-label fw-semibold" for="chatFeedbackComment">Optional note</label>
+            <textarea id="chatFeedbackComment" class="form-control" name="comment" rows="3" placeholder="Tell me what was missing or what you wanted."></textarea>
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <button class="btn btn-accent btn-sm fw-semibold" type="submit">Send feedback</button>
+              <span id="chatFeedbackStatus" class="small text-secondary" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="chatMessages" class="chat-messages" aria-live="polite" aria-label="Chat messages"></div>
+
+      <form id="chatForm" class="mt-auto pt-3" autocomplete="off">
+        <label class="visually-hidden" for="chatInput">Message</label>
+        <textarea id="chatInput" class="form-control form-control-lg" rows="2" placeholder="Type your message..." required></textarea>
+        <div class="d-flex align-items-center gap-2 mt-2">
+          <button class="btn btn-accent fw-semibold" type="submit">
+            <i class="bi bi-send me-2"></i>
+            Send
+          </button>
+          <span id="chatStatus" class="text-secondary small" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <form name="chat-feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input name="bot-field">
+    <input name="rating">
+    <input name="comment">
+    <input name="page">
+    <input name="session_id">
+    <input name="transcript">
+    <input name="created_at">
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="profile.js"></script>
+  <script src="motion.js"></script>
+  <script src="three-bg.js" type="module"></script>
+  <script src="script.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
