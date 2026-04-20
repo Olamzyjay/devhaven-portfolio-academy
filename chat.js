@@ -115,6 +115,7 @@ function setBusy(form, busy) {
 async function sendToAssistant(history) {
   const resp = await fetch(CHAT_ENDPOINT, {
     method: "POST",
+    cache: "no-store",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ messages: history })
   });
