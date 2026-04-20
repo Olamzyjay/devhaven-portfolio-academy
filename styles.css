@@ -52,16 +52,19 @@ body {
   height: 100%;
 }
 
-/* Ensure real content stays above the 3D layer */
+/* Ensure real content stays above the 3D layer.
+   Important: do NOT change Bootstrap overlay positioning (offcanvas/modal). */
 .site-header,
 main,
-.site-footer,
-.mobile-action-bar,
-.chat-fab,
-.offcanvas,
-.modal {
+.site-footer {
   position: relative;
   z-index: 1;
+}
+
+/* Fixed UI should remain fixed; just keep it above the 3D layer. */
+.mobile-action-bar,
+.chat-fab {
+  z-index: 5;
 }
 
 body.is-loaded {
