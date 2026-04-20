@@ -8,6 +8,23 @@ function prefersReducedMotion() {
   return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 }
 
+function shouldEnableThree() {
+  if (prefersReducedMotion()) return false;
+  if (!canUseWebGL()) return false;
+
+  // Skip on smaller screens / likely-mobile devices for performance.
+  if (Math.min(window.innerWidth || 0, window.innerHeight || 0) < 720) return false;
+
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn) {
+    if (conn.saveData) return false;
+    const type = String(conn.effectiveType || "").toLowerCase();
+    if (type.includes("2g")) return false;
+  }
+
+  return true;
+}
+
 function canUseWebGL() {
   try {
     const canvas = document.createElement("canvas");
@@ -42,13 +59,7 @@ function mountCanvas() {
 }
 
 async function initThreeBackground() {
-  if (prefersReducedMotion()) {
-    document.documentElement.classList.add("reduce-motion");
-    return;
-  }
-  if (!canUseWebGL()) {
-    return;
-  }
+  if (!shouldEnableThree()) return;
 
   const { canvas } = mountCanvas();
 
@@ -84,7 +95,7 @@ async function initThreeBackground() {
   scene.add(group);
 
   // Main object: a glassy knot (reads as "3D" immediately).
-  const knotGeo = new THREE.TorusKnotGeometry(1.35, 0.46, 220, 18);
+  const knotGeo = new THREE.TorusKnotGeometry(1.35, 0.46, 140, 14);
   const knotMat = new THREE.MeshPhysicalMaterial({
     color: 0x2af3c9,
     roughness: 0.18,
@@ -114,7 +125,7 @@ async function initThreeBackground() {
   group.add(ring);
 
   // Particle field for "depth" without heavy shaders.
-  const particleCount = 520;
+  const particleCount = 280;
   const positions = new Float32Array(particleCount * 3);
   for (let i = 0; i < particleCount; i++) {
     const i3 = i * 3;
@@ -185,14 +196,40 @@ async function initThreeBackground() {
     renderer.render(scene, camera);
   }
 
-  raf = requestAnimationFrame(animate);
+  function start() {
+    if (raf) return;
+    last = performance.now();
+    raf = requestAnimationFrame(animate);
+  }
 
-  window.addEventListener("pagehide", () => cancelAnimationFrame(raf), { once: true });
+  function stop() {
+    if (!raf) return;
+    cancelAnimationFrame(raf);
+    raf = 0;
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  window.addEventListener("pagehide", stop, { once: true });
+  start();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initThreeBackground().catch(() => {
-    // If Three fails to load, keep the rest of the site working.
-  });
-});
+  // Defer 3D work so it doesn't destroy Lighthouse performance.
+  window.addEventListener(
+    "load",
+    () => {
+      const run = () => initThreeBackground().catch(() => {});
 
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(run, { timeout: 2500 });
+        return;
+      }
+      setTimeout(run, 1800);
+    },
+    { once: true }
+  );
+});
