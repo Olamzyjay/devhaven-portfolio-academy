@@ -706,6 +706,19 @@
                   Visit Academy
                 </a>
               </div>
+
+              <div class="ai-quick mt-4">
+                <h3 class="panel-title h5 mb-2">Ask AI</h3>
+                <p class="section-copy mb-3">Ask a quick question about courses, pricing, or what to build next.</p>
+                <div class="d-grid gap-2">
+                  <label class="visually-hidden" for="prompt">Ask AI</label>
+                  <textarea id="prompt" class="form-control" rows="3" placeholder="Type your question..."></textarea>
+                  <button class="btn btn-outline-dark fw-semibold" type="button" id="askAiBtn">
+                    Ask
+                  </button>
+                  <pre id="aiOutput" class="ai-output mb-0" aria-live="polite"></pre>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-lg-7">
@@ -1181,5 +1194,6 @@
   <script src="three-bg.js" type="module"></script>
   <script src="script.js"></script>
   <script src="chat.js"></script>
+  <script src="ask-ai.js"></script>
 </body>
 </html>

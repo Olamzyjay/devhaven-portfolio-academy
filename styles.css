@@ -90,6 +90,24 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
+/* Ask AI */
+.ai-quick textarea.form-control {
+  border-radius: 8px;
+}
+
+.ai-output {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-700);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 0.9rem;
+  min-height: 5.5rem;
+}
+
 /* Big perf win on long pages: don't render below-the-fold sections immediately. */
 @supports (content-visibility: auto) {
   main > section:not(.hero-section) {
