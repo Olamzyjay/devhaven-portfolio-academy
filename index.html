@@ -506,27 +506,169 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow text-success-emphasis">Testimonials</span>
-          <h2 class="section-title">What clients and learners usually say</h2>
-          <p class="section-copy">Short notes from clients and learners after delivery and training.</p>
+          <h2 class="section-title">People I’ve worked with have said some nice things</h2>
+          <p class="section-copy">A few short notes from clients and learners after delivery and training.</p>
         </div>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="info-tile h-100">
-              <h3>School admin</h3>
-              <p>"The website became easier to read on every device and enquiries started coming in with clearer details."</p>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="7500" data-bs-touch="true">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+              </div>
+
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <figure class="testimonial-card">
+                    <img class="testimonial-avatar" src="assets/images/about.jpg" alt="Client avatar" width="72" height="72" loading="lazy" decoding="async">
+                    <blockquote class="testimonial-quote">
+                      “The website became easier to read on every device and enquiries started coming in with clearer details.”
+                    </blockquote>
+                    <figcaption class="testimonial-meta">
+                      <strong>School admin</strong>
+                      <span>Website refresh + enquiry flow</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="carousel-item">
+                  <figure class="testimonial-card">
+                    <img class="testimonial-avatar" src="assets/images/project-business.jpg" alt="Client avatar" width="72" height="72" loading="lazy" decoding="async">
+                    <blockquote class="testimonial-quote">
+                      “The landing page message finally made sense. Customers could see the offer quickly and reach us on WhatsApp.”
+                    </blockquote>
+                    <figcaption class="testimonial-meta">
+                      <strong>Business owner</strong>
+                      <span>Landing page rewrite + mobile polish</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="carousel-item">
+                  <figure class="testimonial-card">
+                    <img class="testimonial-avatar" src="assets/images/project-academy.jpg" alt="Learner avatar" width="72" height="72" loading="lazy" decoding="async">
+                    <blockquote class="testimonial-quote">
+                      “The lessons were practical. I left with a real page build and knew what to improve next.”
+                    </blockquote>
+                    <figcaption class="testimonial-meta">
+                      <strong>Academy learner</strong>
+                      <span>Beginner-friendly, project-first training</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="info-tile h-100">
-              <h3>Business owner</h3>
-              <p>"The landing page message finally made sense. Customers could see the offer quickly and reach us on WhatsApp."</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-planner" class="section-shell section-mist">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <span class="eyebrow text-success-emphasis">Start a project</span>
+            <h2 class="section-title">Tell me what you want to build</h2>
+            <p class="section-copy mb-3">Share the type of project, your budget range, and what success looks like. I’ll reply with next steps and a clear plan.</p>
+            <div class="stack-panel planner-note">
+              <strong class="d-block mb-2">Fast response</strong>
+              <p class="mb-0 section-copy">Most replies happen through WhatsApp for quick back-and-forth. Email works too if you prefer.</p>
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <a class="btn btn-outline-dark fw-semibold" href="https://wa.me/2347066861881" target="_blank" rel="noreferrer">
+                  <i class="bi bi-whatsapp me-2"></i>
+                  WhatsApp
+                </a>
+                <a class="btn btn-outline-dark fw-semibold" href="mailto:devhaven1@gmail.com?subject=Project%20Planner">
+                  <i class="bi bi-envelope me-2"></i>
+                  Email
+                </a>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="info-tile h-100">
-              <h3>Academy learner</h3>
-              <p>"The lessons were practical. I left with a real page build and knew what to improve next."</p>
-            </div>
+
+          <div class="col-lg-7">
+            <form class="planner-form" name="project-planner" method="POST" action="/project-success.html" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="project-planner">
+              <p class="d-none">
+                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+              </p>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="plannerName">Name</label>
+                  <input class="form-control" id="plannerName" name="name" autocomplete="name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="plannerEmail">Email</label>
+                  <input class="form-control" id="plannerEmail" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="plannerPhone">Phone / WhatsApp (optional)</label>
+                  <input class="form-control" id="plannerPhone" name="phone" autocomplete="tel">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="plannerTimeline">Timeline</label>
+                  <select class="form-select" id="plannerTimeline" name="timeline" required>
+                    <option value="" selected disabled>Choose one</option>
+                    <option>ASAP (1-2 weeks)</option>
+                    <option>2-4 weeks</option>
+                    <option>1-2 months</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="planner-group mt-4">
+                <div class="planner-label">Type of project</div>
+                <div class="planner-choices" role="group" aria-label="Type of project">
+                  <input class="btn-check" type="radio" name="project_type" id="ptype1" value="Responsive website" required>
+                  <label class="btn planner-choice" for="ptype1">Responsive website</label>
+                  <input class="btn-check" type="radio" name="project_type" id="ptype2" value="Ecommerce / Shopify">
+                  <label class="btn planner-choice" for="ptype2">Ecommerce / Shopify</label>
+                  <input class="btn-check" type="radio" name="project_type" id="ptype3" value="Web app / dashboard">
+                  <label class="btn planner-choice" for="ptype3">Web app / dashboard</label>
+                  <input class="btn-check" type="radio" name="project_type" id="ptype4" value="Blockchain / Web3 site">
+                  <label class="btn planner-choice" for="ptype4">Blockchain / Web3 site</label>
+                </div>
+              </div>
+
+              <div class="planner-group mt-4">
+                <div class="planner-label">Budget</div>
+                <div class="planner-choices" role="group" aria-label="Budget range">
+                  <input class="btn-check" type="radio" name="budget" id="budget1" value="NGN 50,000 - 150,000" required>
+                  <label class="btn planner-choice" for="budget1">NGN 50k-150k</label>
+                  <input class="btn-check" type="radio" name="budget" id="budget2" value="NGN 150,000 - 400,000">
+                  <label class="btn planner-choice" for="budget2">NGN 150k-400k</label>
+                  <input class="btn-check" type="radio" name="budget" id="budget3" value="NGN 400,000+">
+                  <label class="btn planner-choice" for="budget3">NGN 400k+</label>
+                  <input class="btn-check" type="radio" name="budget" id="budget4" value="Not sure yet">
+                  <label class="btn planner-choice" for="budget4">Not sure yet</label>
+                </div>
+              </div>
+
+              <div class="planner-group mt-4">
+                <label class="planner-label" for="plannerDetails">Additional details</label>
+                <textarea class="form-control" id="plannerDetails" name="details" rows="5" placeholder="What do you need the site to do? Any links you like? Any features (payments, chatbot, courses, booking, etc.)?" required></textarea>
+              </div>
+
+              <div class="d-grid d-sm-flex gap-2 align-items-center mt-4">
+                <button class="btn btn-accent fw-semibold btn-lg" type="submit">
+                  <i class="bi bi-send me-2"></i>
+                  Submit
+                </button>
+                <div class="planner-privacy">No passwords. No sensitive info.</div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

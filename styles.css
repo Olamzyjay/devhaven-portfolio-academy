@@ -327,6 +327,20 @@ section[id] {
   filter: brightness(0.55) saturate(1.05) contrast(1.05);
 }
 
+@media (max-width: 575.98px) {
+  .hero-carousel .carousel-control-prev,
+  .hero-carousel .carousel-control-next {
+    width: 52px;
+  }
+
+  .hero-carousel .carousel-control-prev-icon,
+  .hero-carousel .carousel-control-next-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-size: 1.05rem 1.05rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-carousel .carousel-item {
     transition: none;
@@ -341,6 +355,90 @@ section[id] {
     radial-gradient(circle at top right, rgba(54, 162, 125, 0.18), transparent 26%),
     radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.08), transparent 24%);
   pointer-events: none;
+}
+
+/* Testimonials (inspired by the clean, minimal presentation style) */
+.testimonial-carousel {
+  position: relative;
+  padding: 0.5rem 0 1.25rem;
+}
+
+.testimonial-carousel .carousel-indicators {
+  bottom: -0.5rem;
+}
+
+.testimonial-carousel .carousel-control-prev,
+.testimonial-carousel .carousel-control-next {
+  width: 56px;
+}
+
+.testimonial-carousel .carousel-control-prev-icon,
+.testimonial-carousel .carousel-control-next-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  background-color: rgba(24, 40, 37, 0.14);
+  box-shadow: 0 18px 42px rgba(8, 29, 25, 0.12);
+  background-size: 1.05rem 1.05rem;
+}
+
+.testimonial-card {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2.25rem 2rem;
+  border-radius: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.testimonial-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid rgba(44, 123, 97, 0.18);
+  box-shadow: 0 18px 44px rgba(8, 29, 25, 0.12);
+  margin: 0 auto 1rem;
+}
+
+.testimonial-quote {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink-900);
+}
+
+.testimonial-meta {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.1rem;
+  color: var(--ink-700);
+}
+
+.testimonial-meta strong {
+  color: var(--ink-900);
+  font-weight: 900;
+}
+
+.testimonial-meta span {
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .testimonial-card {
+    padding: 1.75rem 1.25rem;
+    text-align: left;
+  }
+
+  .testimonial-avatar {
+    margin-left: 0;
+  }
+
+  .testimonial-quote {
+    font-size: 1.02rem;
+  }
 }
 
 .eyebrow {
@@ -417,7 +515,7 @@ section[id] {
 }
 
 .section-shell {
-  padding: clamp(4.25rem, 6vw, 6rem) 0;
+  padding: 5.25rem 0;
 }
 
 .section-mist {
@@ -442,7 +540,7 @@ section[id] {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: 2.6rem;
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -450,7 +548,7 @@ section[id] {
 }
 
 .panel-title {
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -1036,6 +1134,10 @@ body.reduce-motion .case-card:hover {
     min-height: auto;
   }
 
+  .section-shell {
+    padding: 4.75rem 0;
+  }
+
   .hero-with-slider .container.position-relative {
     padding-top: 6rem;
     padding-bottom: 5rem;
@@ -1049,6 +1151,23 @@ body.reduce-motion .case-card:hover {
 @media (max-width: 767.98px) {
   body.has-mobile-bar {
     padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .section-shell {
+    padding: 4.25rem 0;
+  }
+
+  .section-title {
+    font-size: 2.15rem;
+  }
+
+  .panel-title {
+    font-size: 1.35rem;
+  }
+
+  .hero-section h1.display-4 {
+    font-size: 2.25rem;
+    line-height: 1.08;
   }
 
   .hero-with-slider .container.position-relative {
@@ -1068,6 +1187,12 @@ body.reduce-motion .case-card:hover {
 
   .footer-bottom {
     align-items: flex-start;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-title {
+    font-size: 3rem;
   }
 }
 
@@ -1196,6 +1321,55 @@ body.reduce-motion .case-card:hover {
   border-radius: 8px;
   border: 1px solid rgba(24, 40, 37, 0.1);
   box-shadow: none;
+}
+
+/* Project planner */
+.planner-form {
+  padding: 1.6rem;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.planner-label {
+  font-weight: 900;
+  color: var(--ink-900);
+  margin-bottom: 0.75rem;
+}
+
+.planner-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.planner-choice {
+  border-radius: 999px;
+  border: 1px solid rgba(24, 40, 37, 0.16);
+  background: #ffffff;
+  color: var(--ink-900);
+  font-weight: 900;
+  padding: 0.6rem 0.9rem;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-check:checked + .planner-choice {
+  border-color: rgba(44, 123, 97, 0.5);
+  background: rgba(27, 138, 110, 0.12);
+  color: var(--brand-800);
+}
+
+.planner-choice:hover,
+.planner-choice:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(44, 123, 97, 0.28);
+}
+
+.planner-privacy {
+  color: var(--ink-700);
+  font-weight: 700;
+  font-size: 0.92rem;
 }
 
 @media print {

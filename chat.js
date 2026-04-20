@@ -132,7 +132,7 @@ async function sendToAssistant(history) {
   if (!resp.ok) {
     const base = data?.error ? String(data.error) : `HTTP ${resp.status}`;
     const detail = data?.details ? ` (${String(data.details)})` : "";
-    throw new Error(`${base}${detail}`);
+    throw new Error(`HTTP ${resp.status}: ${base}${detail}`);
   }
 
   const reply = String(data?.reply || "").trim();
@@ -314,23 +314,47 @@ function initChatbot() {
       clearStatus();
     } catch (err) {
       typing.remove();
-      setStatus("Assistant is offline right now.");
+      setStatus("Assistant could not connect.");
 
       const msg = String(err?.message || "");
       // Useful for debugging without exposing secrets.
       console.warn("DevHaven Assistant error:", msg);
 
-      if (msg.includes("OPENAI_API_KEY")) {
+      if (msg.startsWith("HTTP 401")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The assistant is not authenticated right now (401).\nThe site owner should re-check OPENAI_API_KEY in Netlify Environment Variables and redeploy.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
+        );
+      } else if (msg.startsWith("HTTP 429")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The assistant is busy right now (rate limited).\nPlease try again in a minute.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
+        );
+      } else if (msg.includes("OPENAI_API_KEY")) {
         renderMessage(
           messagesEl,
           "assistant",
           "The assistant is not configured yet.\nThe site owner needs to add OPENAI_API_KEY in Netlify Environment Variables and redeploy.\nFor now, message DevHaven Studio on WhatsApp: +234 706 686 1881\nOr email: devhaven1@gmail.com"
         );
-      } else if (msg.startsWith("HTTP 404")) {
+      } else if (msg.startsWith("HTTP 404") && !msg.includes("OpenAI request failed")) {
         renderMessage(
           messagesEl,
           "assistant",
           "The chat endpoint is not deployed yet.\nPlease try again after the latest Netlify deploy completes.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
+        );
+      } else if (msg.startsWith("HTTP 404") && msg.includes("OpenAI request failed")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The AI request failed (404).\nThis can happen if the model name is wrong or not available on this key.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
+        );
+      } else if (msg.startsWith("HTTP 500")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The assistant endpoint returned an error (500).\nThis is usually a server configuration issue.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
         );
       } else {
         renderMessage(

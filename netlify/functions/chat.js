@@ -6,7 +6,7 @@
  *
  * Environment variables:
  * - OPENAI_API_KEY (required)
- * - OPENAI_MODEL (optional, default: gpt-4.1)
+ * - OPENAI_MODEL (optional, default: gpt-4.1-mini)
  */
 
 function json(statusCode, payload, extraHeaders = {}) {
@@ -153,7 +153,7 @@ exports.handler = async function handler(event) {
     return json(400, { error: "Missing messages" }, corsHeaders);
   }
 
-  const model = (process.env.OPENAI_MODEL || "gpt-4.1").trim();
+  const model = (process.env.OPENAI_MODEL || "gpt-4.1-mini").trim();
 
   const input = messages.map(msg => ({
     role: msg.role,
