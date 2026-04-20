@@ -118,12 +118,27 @@ async function sendToAssistant(history) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ messages: history })
   });
-  const data = await resp.json();
-  if (!resp.ok) {
-    const detail = data?.details ? ` (${data.details})` : "";
-    throw new Error(`${data?.error || "Request failed"}${detail}`);
+
+  // Some platforms return HTML on errors (404/500), which breaks resp.json().
+  const raw = await resp.text();
+  let data = null;
+  try {
+    data = raw ? JSON.parse(raw) : null;
+  } catch {
+    data = null;
   }
-  return String(data.reply || "").trim();
+
+  if (!resp.ok) {
+    const base = data?.error ? String(data.error) : `HTTP ${resp.status}`;
+    const detail = data?.details ? ` (${String(data.details)})` : "";
+    throw new Error(`${base}${detail}`);
+  }
+
+  const reply = String(data?.reply || "").trim();
+  if (!reply) {
+    throw new Error("Assistant returned an empty response.");
+  }
+  return reply;
 }
 
 function initChatbot() {
@@ -299,11 +314,30 @@ function initChatbot() {
     } catch (err) {
       typing.remove();
       setStatus("Assistant is offline right now.");
-      renderMessage(
-        messagesEl,
-        "assistant",
-        "I could not reach the AI endpoint.\nMessage DevHaven Studio on WhatsApp: +234 706 686 1881\nOr email: devhaven1@gmail.com"
-      );
+
+      const msg = String(err?.message || "");
+      // Useful for debugging without exposing secrets.
+      console.warn("DevHaven Assistant error:", msg);
+
+      if (msg.includes("OPENAI_API_KEY")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The assistant is not configured yet.\nThe site owner needs to add OPENAI_API_KEY in Netlify Environment Variables and redeploy.\nFor now, message DevHaven Studio on WhatsApp: +234 706 686 1881\nOr email: devhaven1@gmail.com"
+        );
+      } else if (msg.startsWith("HTTP 404")) {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "The chat endpoint is not deployed yet.\nPlease try again after the latest Netlify deploy completes.\nWhatsApp: +234 706 686 1881\nEmail: devhaven1@gmail.com"
+        );
+      } else {
+        renderMessage(
+          messagesEl,
+          "assistant",
+          "I could not reach the AI endpoint.\nMessage DevHaven Studio on WhatsApp: +234 706 686 1881\nOr email: devhaven1@gmail.com"
+        );
+      }
     } finally {
       setBusy(form, false);
     }
