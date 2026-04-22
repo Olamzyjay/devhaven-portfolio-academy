@@ -2,6 +2,7 @@ export default async (req, context) => {
   try {
     const { message } = await req.json();
     const apiKey = process.env.OPENAI_API_KEY;
+    const model = String(process.env.OPENAI_MODEL || "gpt-4.1-mini").trim() || "gpt-4.1-mini";
 
     if (!apiKey) {
       return new Response(JSON.stringify({ error: "OPENAI_API_KEY is not set on the server." }), {
@@ -31,7 +32,7 @@ export default async (req, context) => {
         "Authorization": `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "gpt-4.1-mini",
+        model,
         input: cleaned
       })
     });
