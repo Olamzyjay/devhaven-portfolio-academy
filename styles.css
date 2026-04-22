@@ -634,17 +634,13 @@ section[id] {
   margin-bottom: 0.9rem;
 }
 
-.team-avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--mint-100);
-  border: 1px solid rgba(44, 123, 97, 0.18);
-  color: var(--brand-800);
-  font-size: 1.35rem;
+.team-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid rgba(44, 123, 97, 0.18);
+  box-shadow: 0 18px 44px rgba(8, 29, 25, 0.12);
   flex: 0 0 auto;
 }
 
@@ -658,6 +654,13 @@ section[id] {
   color: var(--accent-700);
   font-weight: 800;
   font-size: 0.82rem;
+}
+
+@media (max-width: 575.98px) {
+  .team-photo {
+    width: 58px;
+    height: 58px;
+  }
 }
 
 .info-tile:hover,
