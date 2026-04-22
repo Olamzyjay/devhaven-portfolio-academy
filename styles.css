@@ -604,6 +604,62 @@ section[id] {
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
+.team-card {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-soft);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.team-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 70px rgba(8, 29, 25, 0.12);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover {
+    transform: translateY(-6px) perspective(920px) rotateX(1.4deg) rotateY(-1.8deg);
+  }
+}
+
+.team-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.team-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mint-100);
+  border: 1px solid rgba(44, 123, 97, 0.18);
+  color: var(--brand-800);
+  font-size: 1.35rem;
+  flex: 0 0 auto;
+}
+
+.team-role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.8rem;
+  border-radius: 999px;
+  background: rgba(27, 138, 110, 0.12);
+  color: var(--accent-700);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
 .info-tile:hover,
 .portfolio-tile:hover,
 .proof-card:hover,
