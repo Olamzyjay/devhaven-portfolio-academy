@@ -1,6 +1,6 @@
 # Dependencies / tooling
 node_modules/
-.netlify/
+/.netlify/
 .netlify-local-appdata/
 
 # OS / editor

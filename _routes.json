@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "include": ["/.netlify/functions/*"],
+  "exclude": []
+}
+
