@@ -700,6 +700,25 @@ function initExitIntentModal() {
   document.addEventListener("mouseout", onMouseOut);
 }
 
+function initModalLayoutStability() {
+  // Helps prevent occasional leftover scrollbar padding/scroll lock after closing modals.
+  // This mainly affects "Read case study" modals on some browsers.
+  document.addEventListener("hidden.bs.modal", () => {
+    const hasOpenModal = !!document.querySelector(".modal.show");
+    const hasOpenOffcanvas = !!document.querySelector(".offcanvas.show");
+    if (hasOpenModal || hasOpenOffcanvas) {
+      return;
+    }
+
+    try {
+      document.body.style.removeProperty("padding-right");
+      document.body.style.removeProperty("overflow");
+    } catch {
+      // ignore
+    }
+  });
+}
+
 function init() {
   initYear();
   initProfileDownload();
@@ -709,6 +728,7 @@ function init() {
   initPaymentSuccessPage();
   initGlobalEvents();
   initExitIntentModal();
+  initModalLayoutStability();
   syncCartBadges();
   renderCartDrawer();
   renderCheckoutPage();

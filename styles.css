@@ -23,6 +23,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent layout jump when Bootstrap toggles scroll locking (modals/offcanvas). */
+  scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  html {
+    overflow-y: scroll;
+  }
 }
 
 body {
