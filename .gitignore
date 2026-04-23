@@ -16,3 +16,9 @@ yarn-error.log*
 # Secrets (keep out of repo)
 .env
 .env.*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
