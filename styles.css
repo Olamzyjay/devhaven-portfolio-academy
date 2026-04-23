@@ -43,6 +43,12 @@ body {
   transition: opacity 420ms ease;
 }
 
+/* Bootstrap modals add padding-right to compensate for scrollbars. Since we keep the gutter stable,
+   the extra padding can cause a visible width change (breakpoints flipping) when "Read case study" opens. */
+body.modal-open {
+  padding-right: 0 !important;
+}
+
 /* 3D background canvas (Three.js) */
 .three-bg {
   position: fixed;
