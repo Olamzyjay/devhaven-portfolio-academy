@@ -104,6 +104,13 @@ module.exports = async function handler(req, res) {
         currency: "NGN",
         callback_url: callbackUrl,
         metadata: {
+          payment_type: "academy_checkout",
+          support_source: "academy",
+          customer: {
+            email,
+            fullName,
+            phone
+          },
           custom_fields: [
             { display_name: "Customer Name", variable_name: "customer_name", value: fullName || "Website visitor" },
             { display_name: "Customer Phone", variable_name: "customer_phone", value: phone || "" }

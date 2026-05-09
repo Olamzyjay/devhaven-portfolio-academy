@@ -1,4 +1,9 @@
 const { getMethod, json } = require("./_utils");
+const {
+  appendPaymentRecord,
+  readPayments,
+  writePayments
+} = require("./_invoice-storage");
 
 module.exports = async function handler(req, res) {
   if (getMethod(req) !== "GET") {
@@ -35,6 +40,31 @@ module.exports = async function handler(req, res) {
 
     const tx = data.data || {};
     const verified = data.status === true && tx.status === "success";
+    const metadata = tx.metadata || {};
+
+    if (verified) {
+      const paymentType = String(metadata.payment_type || (metadata.invoiceId ? "invoice" : "academy_checkout")).trim() || "academy_checkout";
+      const payments = await readPayments();
+      const updatedPayments = appendPaymentRecord(payments, {
+        reference: tx.reference || reference,
+        paymentType,
+        source: paymentType === "support" ? String(metadata.support_source || "studio") : paymentType === "academy_checkout" ? "academy" : "invoice",
+        status: String(tx.status || "unknown"),
+        amount: Math.round((Number(tx.amount) || 0) / 100),
+        currency: String(tx.currency || "NGN"),
+        customerEmail: String(tx.customer?.email || metadata?.customer?.email || metadata?.donor?.email || ""),
+        customerName: String(tx.customer?.first_name || metadata?.customer?.fullName || metadata?.donor?.fullName || ""),
+        invoiceId: String(metadata.invoiceId || ""),
+        invoiceNumber: String(metadata.invoiceNumber || ""),
+        chargeType: String(metadata.chargeType || ""),
+        gatewayResponse: String(tx.gateway_response || ""),
+        channel: String(tx.channel || ""),
+        paidAt: tx.paid_at || new Date().toISOString(),
+        metadata
+      });
+      await writePayments(updatedPayments);
+    }
+
     return json(res, 200, {
       ok: true,
       verified,
