@@ -114,7 +114,7 @@ exports.handler = async function handler(event) {
 
   const amountKobo = Math.round(amountNgn * 100);
   const baseUrl = getBaseUrl(event.headers || {});
-  const callbackUrl = baseUrl ? `${baseUrl}/payment-success.html` : undefined;
+  const callbackUrl = baseUrl ? `${baseUrl}/payment-success.html?payment=academy` : undefined;
 
   const initBody = {
     email,
@@ -122,6 +122,13 @@ exports.handler = async function handler(event) {
     currency: "NGN",
     callback_url: callbackUrl,
     metadata: {
+      payment_type: "academy_checkout",
+      support_source: "academy",
+      customer: {
+        email,
+        fullName,
+        phone
+      },
       custom_fields: [
         { display_name: "Customer Name", variable_name: "customer_name", value: fullName || "Website visitor" },
         { display_name: "Customer Phone", variable_name: "customer_phone", value: phone || "" }

@@ -66,6 +66,7 @@ export default async (request) => {
     currency: "NGN",
     callback_url: callbackUrl,
     metadata: {
+      payment_type: "invoice",
       invoiceId: invoice.id,
       invoiceNumber: invoice.invoiceNumber,
       chargeType: label,

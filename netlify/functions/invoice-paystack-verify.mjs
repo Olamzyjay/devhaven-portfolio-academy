@@ -1,4 +1,5 @@
 import { appendPayment, json, readInvoices, writeInvoices } from "./_shared/invoice-store.mjs";
+import { appendPaymentRecord, readPayments, writePayments } from "./_shared/payment-store.mjs";
 
 export default async (request) => {
   if (request.method !== "GET") {
@@ -59,6 +60,26 @@ export default async (request) => {
 
     invoices[index] = nextInvoice;
     await writeInvoices(invoices);
+
+    const payments = await readPayments();
+    const updatedPayments = appendPaymentRecord(payments, {
+      reference,
+      paymentType: "invoice",
+      source: "invoice",
+      status: String(transaction.status || "unknown"),
+      amount: Math.round((Number(transaction.amount) || 0) / 100),
+      currency: String(transaction.currency || "NGN"),
+      customerEmail: String(transaction.customer?.email || existing.clientEmail || ""),
+      customerName: String(existing.clientName || ""),
+      invoiceId: existing.id,
+      invoiceNumber: existing.invoiceNumber,
+      chargeType: String(metadata.chargeType || "full"),
+      gatewayResponse: String(transaction.gateway_response || ""),
+      channel: String(transaction.channel || ""),
+      paidAt: transaction.paid_at || new Date().toISOString(),
+      metadata
+    });
+    await writePayments(updatedPayments);
 
     return json({
       ok: true,
