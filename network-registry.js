@@ -49,7 +49,15 @@ function initNetworkRegistry() {
   }
 
   function getProjectUrl(project) {
-    return project.url || (project.domain && project.domain.includes(".") ? `https://${project.domain}` : "");
+    return project.url || (isPublicDomain(project) ? `https://${project.domain}` : "");
+  }
+
+  function isPublicDomain(project) {
+    const domain = String(project.domain || "").trim().toLowerCase();
+    return Boolean(domain)
+      && domain.includes(".")
+      && !domain.includes("private preview")
+      && !domain.endsWith(".devhaven");
   }
 
   function getProjectScreenshot(project) {
@@ -86,6 +94,8 @@ function initNetworkRegistry() {
       const projectUrl = getProjectUrl(project);
       const target = projectUrl.startsWith("http") ? "_blank" : "_self";
       const category = project.category || project.type || "Project";
+      const isPreview = project.status === "In Development" && Boolean(projectUrl);
+      const primaryActionLabel = isPreview ? "Open live preview" : "Open project";
       const seoLine = project.seoTitle || project.seoDescription
         ? `<div class="network-seo">
             ${project.seoTitle ? `<span><strong>SEO title:</strong> ${project.seoTitle}</span>` : ""}
@@ -113,8 +123,8 @@ function initNetworkRegistry() {
             </div>
             ${seoLine}
             <div class="network-actions">
-              ${projectUrl ? `<a class="btn btn-accent btn-sm fw-semibold" href="${projectUrl}" target="${target}" rel="noreferrer">Open project</a>` : ""}
-              ${project.domain && project.domain.includes(".") ? `<a class="btn btn-outline-light btn-sm fw-semibold" href="https://${project.domain}" target="_blank" rel="noreferrer">Open domain</a>` : ""}
+              ${projectUrl ? `<a class="btn btn-accent btn-sm fw-semibold" href="${projectUrl}" target="${target}" rel="noreferrer">${primaryActionLabel}</a>` : ""}
+              ${isPublicDomain(project) ? `<a class="btn btn-outline-light btn-sm fw-semibold" href="https://${project.domain}" target="_blank" rel="noreferrer">Open domain</a>` : ""}
             </div>
           </div>
         </article>
@@ -142,7 +152,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       await store.loadProjects();
     } catch (error) {
-      console.error("Could not load live registry:", error);
+      console.warn("Using seeded registry because the live registry could not be loaded:", error);
     }
   }
   initNetworkRegistry();

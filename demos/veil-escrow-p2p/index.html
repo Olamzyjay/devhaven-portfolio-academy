@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeilEscrow P2P</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#market">
+        <span class="brand-mark">V</span>
+        <span>
+          <strong>VeilEscrow</strong>
+          <small>anonymous p2p escrow</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#market" class="nav-link active">Market</a>
+        <a href="#create" class="nav-link">Create offer</a>
+        <a href="#orders" class="nav-link">Escrow orders</a>
+        <a href="#disputes" class="nav-link">Disputes</a>
+        <a href="#protocol" class="nav-link">Protocol</a>
+      </nav>
+
+      <section class="identity-card">
+        <span class="eyebrow">Session identity</span>
+        <strong id="sessionHandle">Anon Trader</strong>
+        <span id="sessionKey">Key unavailable</span>
+        <button class="ghost-button" id="rotateIdentity" type="button">Rotate identity</button>
+      </section>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Secure trade desk</span>
+          <h1>Anonymous buyer and seller escrow for goods, services, and crypto-settled p2p trades.</h1>
+        </div>
+        <button class="primary-button" id="seedTrade" type="button">Start sample trade</button>
+      </header>
+
+      <section class="stats-grid" aria-label="Escrow statistics">
+        <article>
+          <span>Total locked</span>
+          <strong id="lockedTotal">$0</strong>
+        </article>
+        <article>
+          <span>Open trades</span>
+          <strong id="openTrades">0</strong>
+        </article>
+        <article>
+          <span>Release rule</span>
+          <strong>Buyer confirms</strong>
+        </article>
+        <article>
+          <span>Settlement</span>
+          <strong>USDT, BTC, ETH</strong>
+        </article>
+      </section>
+
+      <section id="market" class="workspace-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">P2P market</span>
+            <h2>Browse anonymous seller offers</h2>
+          </div>
+          <div class="filter-row">
+            <button class="chip active" data-filter="all" type="button">All</button>
+            <button class="chip" data-filter="Digital goods" type="button">Digital goods</button>
+            <button class="chip" data-filter="Physical goods" type="button">Physical goods</button>
+            <button class="chip" data-filter="Services" type="button">Services</button>
+          </div>
+        </div>
+        <div class="offer-grid" id="offerGrid"></div>
+      </section>
+
+      <section id="create" class="workspace-section split-section">
+        <div>
+          <span class="eyebrow">Seller console</span>
+          <h2>Create an anonymous offer</h2>
+          <p class="muted">Seller details are represented by disposable handles. Delivery evidence and encrypted chat notes remain attached to the escrow order.</p>
+        </div>
+
+        <form id="offerForm" class="panel">
+          <label>
+            Offer title
+            <input name="title" required maxlength="70" placeholder="e.g. Website migration service" />
+          </label>
+          <label>
+            Category
+            <select name="category">
+              <option>Digital goods</option>
+              <option>Physical goods</option>
+              <option>Services</option>
+            </select>
+          </label>
+          <label>
+            Price in USD
+            <input name="price" required min="10" step="1" type="number" placeholder="250" />
+          </label>
+          <label>
+            Accepted crypto
+            <select name="crypto">
+              <option>USDT TRC20</option>
+              <option>USDT ERC20</option>
+              <option>BTC</option>
+              <option>ETH</option>
+              <option>USDC Polygon</option>
+            </select>
+          </label>
+          <label>
+            Delivery window
+            <input name="window" required maxlength="30" placeholder="24 hours" />
+          </label>
+          <label>
+            Terms
+            <textarea name="terms" required maxlength="220" placeholder="Describe what the buyer receives and what proof confirms delivery."></textarea>
+          </label>
+          <button class="primary-button" type="submit">Publish offer</button>
+        </form>
+      </section>
+
+      <section id="orders" class="workspace-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Escrow lifecycle</span>
+            <h2>Active orders</h2>
+          </div>
+          <button class="ghost-button" id="clearDemo" type="button">Reset demo data</button>
+        </div>
+        <div class="orders-list" id="ordersList"></div>
+      </section>
+
+      <section id="disputes" class="workspace-section split-section">
+        <div>
+          <span class="eyebrow">Resolution center</span>
+          <h2>Evidence-led dispute handling</h2>
+          <p class="muted">If a buyer refuses release or a seller cannot prove delivery, the transaction moves to arbitration. A production system should use signed logs, encrypted uploads, clear terms, and jurisdiction-aware compliance controls.</p>
+        </div>
+        <div class="panel" id="disputePanel"></div>
+      </section>
+
+      <section id="protocol" class="workspace-section protocol-grid">
+        <article>
+          <span>01</span>
+          <h3>Buyer opens order</h3>
+          <p>Buyer accepts an offer and receives a one-time crypto deposit address or invoice memo.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Funds lock</h3>
+          <p>Escrow detects payment confirmations and prevents release until the agreed receipt check is completed.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Seller delivers</h3>
+          <p>Seller attaches tracking, file hash, access credentials, or service evidence to the order.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Buyer confirms</h3>
+          <p>Funds release only after the buyer confirms receipt, or after dispute resolution authorizes release/refund.</p>
+        </article>
+      </section>
+    </main>
+
+    <template id="offerTemplate">
+      <article class="offer-card">
+        <div class="offer-top">
+          <span class="category"></span>
+          <span class="seller"></span>
+        </div>
+        <h3></h3>
+        <p></p>
+        <dl>
+          <div><dt>Price</dt><dd class="price"></dd></div>
+          <div><dt>Crypto</dt><dd class="crypto"></dd></div>
+          <div><dt>Window</dt><dd class="window"></dd></div>
+        </dl>
+        <button class="primary-button" type="button">Open escrow</button>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

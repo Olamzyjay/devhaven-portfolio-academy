@@ -1,0 +1,106 @@
+:root {
+  --bg: #08120f;
+  --ink: #f4fffb;
+  --muted: #9db3ad;
+  --line: rgba(255,255,255,.14);
+  --panel: rgba(255,255,255,.075);
+  --green: #36d399;
+  --cyan: #35a6b8;
+  --gold: #d8a13b;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 22% 12%, rgba(54,211,153,.18), transparent 30%),
+    radial-gradient(circle at 82% 4%, rgba(53,166,184,.16), transparent 28%),
+    var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.nav {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px clamp(18px, 4vw, 54px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(8,18,15,.78);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { color: var(--ink); text-decoration: none; font-weight: 950; letter-spacing: .08em; }
+.logo span { color: var(--green); }
+.nav nav { display: flex; gap: 18px; }
+.nav a { color: var(--muted); text-decoration: none; font-weight: 750; }
+button, .actions a {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: var(--green);
+  color: #05100d;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+main { width: min(1240px, 100%); margin: 0 auto; padding: 32px clamp(16px, 4vw, 42px) 64px; }
+.hero { min-height: calc(100vh - 110px); display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr); gap: 30px; align-items: center; }
+.eyebrow { margin: 0 0 10px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; font-weight: 900; }
+h1 { margin: 0; font-size: clamp(2.8rem, 7vw, 6.8rem); line-height: .9; letter-spacing: 0; max-width: 860px; }
+h2 { margin: 0 0 12px; font-size: 2rem; }
+p { color: var(--muted); line-height: 1.7; }
+.hero-copy > p:not(.eyebrow) { max-width: 660px; font-size: 1.1rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.actions .secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.chain-panel, .panel, .metrics article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 24px 80px rgba(0,0,0,.22);
+}
+.chain-panel { min-height: 420px; display: grid; place-items: center; overflow: hidden; }
+canvas { width: 100%; max-width: 520px; height: 420px; }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 32px; }
+.metrics article { padding: 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; }
+.metrics span { color: var(--muted); }
+.metrics strong { font-size: 1.8rem; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.panel { padding: 22px; }
+.token-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.token-grid span { padding: 14px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); }
+.token-grid strong { display: block; color: var(--ink); margin-top: 5px; }
+li { margin: 10px 0; color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+.steps span { border: 1px solid var(--line); border-radius: 8px; padding: 14px; color: var(--muted); }
+.steps .done { border-color: rgba(54,211,153,.54); color: var(--ink); background: rgba(54,211,153,.1); }
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  background: var(--green);
+  color: #06120f;
+  padding: 13px 16px;
+  border-radius: 8px;
+  font-weight: 900;
+  transform: translateY(90px);
+  opacity: 0;
+  transition: .24s ease;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 900px) {
+  .hero, .split, .metrics, .steps { grid-template-columns: 1fr; }
+  .nav { align-items: flex-start; flex-direction: column; }
+  h1 { font-size: 3rem; }
+}

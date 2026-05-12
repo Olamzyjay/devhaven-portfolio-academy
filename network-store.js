@@ -1,7 +1,7 @@
 (function () {
   const API_BASE = "/api/registry";
   const SESSION_KEY = "devhaven-registry-admin-key";
-  let cachedProjects = [];
+  let cachedProjects = Array.isArray(window.DEVHavenNetworkProjects) ? clone(window.DEVHavenNetworkProjects) : [];
 
   function clone(value) {
     return JSON.parse(JSON.stringify(value));
