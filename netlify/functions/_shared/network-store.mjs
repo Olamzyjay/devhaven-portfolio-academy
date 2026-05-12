@@ -40,8 +40,16 @@ export async function readProjects() {
   const store = getRegistryStore();
   const saved = await store.get(STORE_KEY, { type: "json" });
 
-  if (Array.isArray(saved)) {
-    return saved;
+  if (Array.isArray(saved) && saved.length) {
+    const merged = new Map(saved.map((project) => [project.id, project]));
+    networkSeedProjects.forEach((project) => {
+      merged.set(project.id, {
+        ...(merged.get(project.id) || {}),
+        ...project
+      });
+    });
+
+    return Array.from(merged.values());
   }
 
   return clone(networkSeedProjects);

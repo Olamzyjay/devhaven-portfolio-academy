@@ -34,7 +34,7 @@ export const networkSeedProjects = [
   {
     id: "afss-egosile",
     domain: "afssegosile.com",
-    client: "AFSS Egosile",
+    client: "AFSS Egosi-Ile",
     type: "School Website",
     category: "Education",
     url: "https://afssegosile.com",
@@ -43,7 +43,7 @@ export const networkSeedProjects = [
     screenshot: "assets/images/project-school.webp",
     description: "Responsive school website with clear structure, information pages, trust-building sections, and a stronger digital front door for the school.",
     stack: "HTML5, CSS3, Bootstrap, JavaScript",
-    seoTitle: "AFSS Egosile | Responsive School Website by DevHaven Studio",
+    seoTitle: "AFSS Egosi-Ile | Responsive School Website by DevHaven Studio",
     seoDescription: "A trust-first school website designed to present school identity, communication, and public information clearly across devices.",
     seoKeywords: "school website, education website, responsive website, DevHaven Studio"
   },
