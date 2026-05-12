@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web3 Brand Site Preview | DevHaven</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="nav">
+      <a class="logo" href="../../network.html">NOVA<span>CHAIN</span></a>
+      <nav>
+        <a href="#token">Token</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#metrics">Metrics</a>
+      </nav>
+      <button id="walletButton">Preview wallet</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">In-development Web3 brand preview</p>
+          <h1>Launch a sharper blockchain product presence before mainnet.</h1>
+          <p>A demo brand site for token storytelling, roadmap confidence, exchange-ready information, and investor-friendly project signals.</p>
+          <div class="actions">
+            <a href="#token">Explore token model</a>
+            <a href="#roadmap" class="secondary">View roadmap</a>
+          </div>
+        </div>
+        <div class="chain-panel" aria-label="Animated blockchain preview">
+          <canvas id="chainCanvas" width="520" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="metrics" id="metrics">
+        <article><span>Preview TVL</span><strong id="tvl">$12.8M</strong></article>
+        <article><span>Community</span><strong>48k</strong></article>
+        <article><span>Network fee</span><strong>$0.014</strong></article>
+        <article><span>Security score</span><strong>92%</strong></article>
+      </section>
+
+      <section class="split" id="token">
+        <article class="panel">
+          <p class="eyebrow">Token information</p>
+          <h2>Clear asset storytelling</h2>
+          <p>Visitors can scan supply, utility, vesting, governance, and risk notices without asking for a whitepaper first.</p>
+          <div class="token-grid">
+            <span>Supply <strong>1B NOVA</strong></span>
+            <span>Utility <strong>Fees + access</strong></span>
+            <span>Network <strong>EVM-ready</strong></span>
+            <span>Launch <strong>Testnet</strong></span>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Trust signals</p>
+          <h2>Built for due diligence</h2>
+          <ul>
+            <li>Audit-ready security section</li>
+            <li>Roadmap and milestone tracking</li>
+            <li>Team, treasury, and ecosystem areas</li>
+            <li>Wallet-ready CTA patterns</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel roadmap" id="roadmap">
+        <p class="eyebrow">Roadmap</p>
+        <h2>From testnet story to launch confidence</h2>
+        <div class="steps">
+          <span class="done">Concept</span>
+          <span class="done">Prototype</span>
+          <span>Audit prep</span>
+          <span>Mainnet</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast">Wallet preview connected</div>
+    <script src="script.js"></script>
+  </body>
+</html>

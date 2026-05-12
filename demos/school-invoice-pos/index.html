@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Invoice and POS Preview | DevHaven</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <a class="brand" href="../../network.html">
+          <span>DH</span>
+          <strong>School POS Preview</strong>
+        </a>
+        <nav>
+          <a class="active" href="#dashboard">Dashboard</a>
+          <a href="#invoice">Invoice</a>
+          <a href="#terminal">POS Terminal</a>
+          <a href="#records">Records</a>
+        </nav>
+        <p class="preview-note">Visitor preview only. Real student records, payment keys, and admin files are not included.</p>
+      </aside>
+
+      <main>
+        <header class="topbar" id="dashboard">
+          <div>
+            <p class="eyebrow">In-development preview</p>
+            <h1>School billing and POS workspace</h1>
+          </div>
+          <div class="session-card">
+            <strong>Demo cashier</strong>
+            <span>Front desk terminal</span>
+          </div>
+        </header>
+
+        <section class="stats">
+          <article>
+            <span>Today collected</span>
+            <strong id="collected">NGN 0</strong>
+          </article>
+          <article>
+            <span>Outstanding</span>
+            <strong id="outstanding">NGN 0</strong>
+          </article>
+          <article>
+            <span>Invoices issued</span>
+            <strong id="invoiceCount">0</strong>
+          </article>
+          <article>
+            <span>POS status</span>
+            <strong>Ready</strong>
+          </article>
+        </section>
+
+        <section class="grid">
+          <article class="panel" id="invoice">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Invoice builder</p>
+                <h2>Create a sample fee invoice</h2>
+              </div>
+              <button id="issueInvoice">Issue invoice</button>
+            </div>
+            <div class="form-grid">
+              <label>Student name <input id="studentName" value="Grace Adewale"></label>
+              <label>Class <select id="studentClass"><option>JSS 2</option><option>SSS 1</option><option>SSS 3</option></select></label>
+              <label>Fee item <select id="feeItem"><option value="85000">Tuition and term fees</option><option value="35000">Boarding supplement</option><option value="18000">Development levy</option></select></label>
+            </div>
+            <div class="invoice-preview">
+              <span>Generated invoice</span>
+              <strong id="invoiceTotal">NGN 85,000</strong>
+              <small id="invoiceMeta">Grace Adewale • JSS 2 • Awaiting payment</small>
+            </div>
+          </article>
+
+          <article class="panel" id="terminal">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">POS terminal</p>
+                <h2>Record payment</h2>
+              </div>
+            </div>
+            <div class="terminal">
+              <div class="screen">
+                <span>Amount due</span>
+                <strong id="amountDue">NGN 85,000</strong>
+              </div>
+              <div class="keypad">
+                <button data-pay="25000">25k</button>
+                <button data-pay="50000">50k</button>
+                <button data-pay="85000">Full</button>
+              </div>
+              <button class="pay-button" id="recordPayment">Record selected payment</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel" id="records">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Payment records</p>
+              <h2>Recent activity</h2>
+            </div>
+          </div>
+          <div class="records" id="recordsList"></div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

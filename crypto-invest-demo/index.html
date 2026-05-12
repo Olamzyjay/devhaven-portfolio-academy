@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vaultora Capital Demo</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="#overview" aria-label="Vaultora Capital dashboard">
+          <span class="brand-mark">V</span>
+          <span>
+            <strong>Vaultora</strong>
+            <small>Capital Demo</small>
+          </span>
+        </a>
+        <nav class="nav-list">
+          <a href="#overview" class="active" data-nav>Overview</a>
+          <a href="#plans" data-nav>Invest</a>
+          <a href="#wallet" data-nav>Wallet</a>
+          <a href="#withdraw" data-nav>Withdraw</a>
+          <a href="#activity" data-nav>Activity</a>
+        </nav>
+        <div class="sidebar-card">
+          <span class="status-dot"></span>
+          <p>Demo environment</p>
+          <small>Balances, rates, deposits, and withdrawals are simulated for product preview only.</small>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Crypto, fiat, and funds dashboard</p>
+            <h1>Investment growth workspace</h1>
+          </div>
+          <div class="profile-chip">
+            <span>AO</span>
+            <div>
+              <strong id="accountName">Amina Okoro</strong>
+              <small>Verified demo user</small>
+            </div>
+          </div>
+        </header>
+
+        <section class="notice" role="note">
+          <strong>Important:</strong> This is a functional demo, not financial advice and not a real investment service. Real platforms require licensing, compliance, custody controls, risk disclosures, and secure backend infrastructure.
+        </section>
+
+        <section id="overview" class="section">
+          <div class="stats-grid">
+            <article class="stat-panel primary-stat">
+              <span>Total portfolio</span>
+              <strong id="totalPortfolio">$0.00</strong>
+              <small id="portfolioDelta">+0.00 simulated earnings</small>
+            </article>
+            <article class="stat-panel">
+              <span>Wallet balance</span>
+              <strong id="walletBalance">$0.00</strong>
+              <small>Available for new investments</small>
+            </article>
+            <article class="stat-panel">
+              <span>Active investments</span>
+              <strong id="activeInvestments">$0.00</strong>
+              <small id="activePlans">0 running plans</small>
+            </article>
+            <article class="stat-panel">
+              <span>Withdrawable earnings</span>
+              <strong id="withdrawable">$0.00</strong>
+              <small>Unlocked simulated profit</small>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel chart-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Growth projection</p>
+                  <h2>Portfolio curve</h2>
+                </div>
+                <select id="chartRange" aria-label="Projection range">
+                  <option value="30">30 days</option>
+                  <option value="90">90 days</option>
+                  <option value="180">180 days</option>
+                </select>
+              </div>
+              <canvas id="growthChart" width="900" height="340" aria-label="Portfolio growth chart"></canvas>
+            </article>
+
+            <article class="panel market-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Live-style demo feed</p>
+                  <h2>Markets</h2>
+                </div>
+                <button class="icon-button" id="refreshRates" aria-label="Refresh demo rates" title="Refresh demo rates">R</button>
+              </div>
+              <div id="marketList" class="market-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="plans" class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Choose allocation</p>
+              <h2>Investment plans</h2>
+            </div>
+            <button class="ghost-button" id="simulateDay">Simulate 1 day growth</button>
+          </div>
+          <div class="plans-grid" id="plansGrid"></div>
+        </section>
+
+        <section id="wallet" class="section">
+          <div class="wallet-grid">
+            <article class="panel">
+              <div class="panel-head compact">
+                <div>
+                  <p class="eyebrow">Fund account</p>
+                  <h2>Deposit fiat or crypto</h2>
+                </div>
+              </div>
+              <form id="depositForm" class="form-grid">
+                <label>
+                  Asset
+                  <select id="depositAsset">
+                    <option value="USD">USD bank transfer</option>
+                    <option value="USDT">USDT wallet</option>
+                    <option value="BTC">Bitcoin</option>
+                    <option value="ETH">Ethereum</option>
+                  </select>
+                </label>
+                <label>
+                  Amount
+                  <input id="depositAmount" type="text" inputmode="decimal" value="1000">
+                </label>
+                <button type="submit" class="primary-button">Add demo funds</button>
+              </form>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head compact">
+                <div>
+                  <p class="eyebrow">Current allocation</p>
+                  <h2>Assets</h2>
+                </div>
+              </div>
+              <div class="asset-list" id="assetList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="withdraw" class="section">
+          <div class="withdraw-grid">
+            <article class="panel">
+              <div class="panel-head compact">
+                <div>
+                  <p class="eyebrow">Request payout</p>
+                  <h2>Withdraw earnings</h2>
+                </div>
+              </div>
+              <form id="withdrawForm" class="form-grid">
+                <label>
+                  Destination
+                  <select id="withdrawDestination">
+                    <option value="Bank account">Bank account</option>
+                    <option value="USDT wallet">USDT wallet</option>
+                    <option value="BTC wallet">BTC wallet</option>
+                  </select>
+                </label>
+                <label>
+                  Amount
+                  <input id="withdrawAmount" type="text" inputmode="decimal" value="100">
+                </label>
+                <button type="submit" class="primary-button">Request withdrawal</button>
+              </form>
+            </article>
+
+            <article class="panel approval-panel">
+              <p class="eyebrow">Withdrawal status</p>
+              <h2 id="approvalTitle">Ready for request</h2>
+              <p id="approvalText">Earnings become withdrawable as simulated plans accrue profit. Demo requests are logged instantly.</p>
+              <div class="progress-track" aria-label="Withdrawal processing status">
+                <span id="approvalProgress"></span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="activity" class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Ledger</p>
+              <h2>Transactions</h2>
+            </div>
+            <button class="ghost-button" id="resetDemo">Reset demo</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Asset</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
