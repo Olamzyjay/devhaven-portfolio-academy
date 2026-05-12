@@ -109,8 +109,20 @@ function normalizeProject(project = {}, existing = null) {
 }
 
 async function readProjects() {
-  const projects = await readJsonBlob(REGISTRY_PATH, seedProjects);
-  return Array.isArray(projects) && projects.length ? projects : clone(seedProjects);
+  const projects = await readJsonBlob(REGISTRY_PATH, []);
+  if (!Array.isArray(projects) || !projects.length) {
+    return clone(seedProjects);
+  }
+
+  const merged = new Map(projects.map((project) => [project.id, project]));
+  seedProjects.forEach((project) => {
+    merged.set(project.id, {
+      ...(merged.get(project.id) || {}),
+      ...project
+    });
+  });
+
+  return Array.from(merged.values());
 }
 
 async function writeProjects(projects) {
