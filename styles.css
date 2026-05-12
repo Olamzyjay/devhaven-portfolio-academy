@@ -1243,6 +1243,21 @@ body.reduce-motion .case-card:hover {
   color: rgba(255, 255, 255, 0.72);
 }
 
+.network-status-warning {
+  border: 1px solid rgba(245, 158, 11, 0.38);
+  border-radius: 0.85rem;
+  background: rgba(245, 158, 11, 0.1);
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  padding: 0.85rem 0.95rem;
+}
+
+.network-status-warning strong {
+  color: #facc15;
+}
+
 .network-meta {
   display: grid;
   gap: 0.45rem;

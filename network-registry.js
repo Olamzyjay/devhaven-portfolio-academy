@@ -96,6 +96,11 @@ function initNetworkRegistry() {
       const category = project.category || project.type || "Project";
       const isPreview = project.status === "In Development" && Boolean(projectUrl);
       const primaryActionLabel = isPreview ? "Open live preview" : "Open project";
+      const statusWarning = project.status === "In Development"
+        ? `<p class="network-status-warning"><strong>Preview safety notice:</strong> This project is still in development. Do not submit real payments, private details, or rely on any action shown here as final.</p>`
+        : project.status === "Maintenance"
+          ? `<p class="network-status-warning"><strong>Maintenance notice:</strong> This project may be incomplete or changing. Please avoid committing actions or trusting live outcomes until it is confirmed active.</p>`
+          : "";
       const seoLine = project.seoTitle || project.seoDescription
         ? `<div class="network-seo">
             ${project.seoTitle ? `<span><strong>SEO title:</strong> ${project.seoTitle}</span>` : ""}
@@ -115,6 +120,7 @@ function initNetworkRegistry() {
             </div>
             <h3>${project.client}</h3>
             <p>${project.description || "A verified DevHaven Studio project."}</p>
+            ${statusWarning}
             <div class="network-meta">
               <span><strong>Domain:</strong> ${project.domain || "Private deployment"}</span>
               <span><strong>Category:</strong> ${category}</span>
