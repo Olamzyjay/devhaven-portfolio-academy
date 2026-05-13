@@ -101,7 +101,7 @@ window.DEVHavenNetworkProjects = [
     client: "Business Landing Funnel",
     type: "Landing Page",
     category: "Business",
-    url: "",
+    url: "demos/business-landing/index.html",
     status: "Maintenance",
     featured: false,
     screenshot: "assets/images/project-business.webp",

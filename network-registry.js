@@ -94,8 +94,8 @@ function initNetworkRegistry() {
       const projectUrl = getProjectUrl(project);
       const target = projectUrl.startsWith("http") ? "_blank" : "_self";
       const category = project.category || project.type || "Project";
-      const isPreview = project.status === "In Development" && Boolean(projectUrl);
-      const primaryActionLabel = isPreview ? "Open live preview" : "Open project";
+      const isPreview = project.status === "In Development" || project.status === "Maintenance";
+      const primaryActionLabel = isPreview ? "Open Preview/Demo" : "Open Project/Site";
       const statusWarning = project.status === "In Development"
         ? `<p class="network-status-warning"><strong>Preview safety notice:</strong> This project is still in development. Do not submit real payments, private details, or rely on any action shown here as final.</p>`
         : project.status === "Maintenance"
@@ -130,7 +130,6 @@ function initNetworkRegistry() {
             ${seoLine}
             <div class="network-actions">
               ${projectUrl ? `<a class="btn btn-accent btn-sm fw-semibold" href="${projectUrl}" target="${target}" rel="noreferrer">${primaryActionLabel}</a>` : ""}
-              ${isPublicDomain(project) ? `<a class="btn btn-outline-light btn-sm fw-semibold" href="https://${project.domain}" target="_blank" rel="noreferrer">Open domain</a>` : ""}
             </div>
           </div>
         </article>
