@@ -508,6 +508,14 @@ section[id] {
   font-weight: 700;
 }
 
+.testimonial-project-line {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--ink-600);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
 @media (max-width: 767.98px) {
   .testimonial-card {
     padding: 1.75rem 1.25rem;
@@ -1267,6 +1275,45 @@ body.reduce-motion .case-card:hover {
 
 .network-meta strong {
   color: #fff;
+}
+
+.review-submit-panel .form-control,
+.review-submit-panel .form-select {
+  border-radius: 1rem;
+}
+
+.review-preview-box {
+  min-height: 20rem;
+  border-radius: 1.25rem;
+  border: 1px dashed var(--line);
+  background: var(--mist);
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 1.4rem;
+  text-align: center;
+}
+
+.review-preview-box img {
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.review-admin-card .admin-project-meta a {
+  color: inherit;
+  word-break: break-word;
+}
+
+.review-admin-thumb img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.review-admin-quote {
+  font-style: italic;
 }
 
 .network-seo {
