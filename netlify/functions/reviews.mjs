@@ -15,6 +15,18 @@ import {
 export default async (request, context) => {
   const id = context.params?.id ? String(context.params.id).trim() : "";
 
+  if (id === "auth") {
+    if (request.method !== "POST") {
+      return json({ error: "Method not allowed." }, 405);
+    }
+
+    if (!isAuthorized(request)) {
+      return json({ error: "That review admin key is not correct." }, 403);
+    }
+
+    return json({ ok: true });
+  }
+
   if (request.method === "GET") {
     const reviews = sortReviews(await readReviews());
     if (id) {
